@@ -18,11 +18,14 @@ def run():
 def upload():
     videouuid = str(uuid.uuid4())
     f = request.files['file']
+    print(f)
     filename = UPLOAD_FOLDER + videouuid + f.filename
     f.save(filename)
     comp.compressVideos(filename, UPLOAD_FOLDER)
 
-    return f'file uploaded successfully https://video-compressor-py.herokuapp.com/uploads/{videouuid}{f.filename}'
+    return f"""file uploaded successfully 
+    <a href="/uploads/{videouuid}">Download</a>
+    """
 
 
 
