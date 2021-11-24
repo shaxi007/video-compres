@@ -9,6 +9,7 @@ app = Flask('app')
 UPLOAD_FOLDER = f'{os.path.dirname(os.path.realpath(__file__))}/uploads/'
 ON_HEROKU = os.environ.get('ON_HEROKU')
 port=3000
+host='0.0.0.0'
 if ON_HEROKU:
     # get the heroku port 
     port = int(os.environ.get("PORT", 17995))  # as per OP comments default is 17995
@@ -39,4 +40,4 @@ def download_file(filename):
     return send_file(UPLOAD_FOLDER + 'compressed/' + filename, as_attachment=True)
 
 
-app.run(host='0.0.0.0', port)
+app.run(host, port)
