@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, send_file
 import os
 import comp
 import uuid
+import time
 
 
 app = Flask('app')
@@ -20,6 +21,7 @@ def upload():
     f = request.files['file']
     filename = UPLOAD_FOLDER + videouuid + f.filename
     f.save(filename)
+    time.sleep(10)
     comp.compressVideos(filename, UPLOAD_FOLDER)
 
     return f'file uploaded successfully http://localhost:8080/uploads/{videouuid}{f.filename}'
