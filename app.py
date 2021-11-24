@@ -18,8 +18,8 @@ def run():
 def upload():
     videouuid = str(uuid.uuid4())
     f = request.files['file']
-    print(f)
-    filename = UPLOAD_FOLDER + videouuid + f.filename
+    file_ext = f.filename.split(.)[-1]
+    filename = UPLOAD_FOLDER + videouuid +'.' + file_ext
     f.save(filename)
     comp.compressVideos(filename, UPLOAD_FOLDER)
 
