@@ -20,10 +20,9 @@ def upload():
     f = request.files['file']
     filename = UPLOAD_FOLDER + videouuid + f.filename
     f.save(filename)
-    # comp.compressVideos(filename, UPLOAD_FOLDER)
+    comp.compressVideos(filename, UPLOAD_FOLDER)
 
-    # return f'file uploaded successfully http://localhost:8080/uploads/{videouuid}{f.filename}'
-    return 'file upload'
+    return f'file uploaded successfully http://localhost:8080/uploads/{videouuid}{f.filename}'
 
 
 
