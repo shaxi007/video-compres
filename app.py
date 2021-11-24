@@ -22,7 +22,7 @@ def upload():
     f.save(filename)
     comp.compressVideos(filename, UPLOAD_FOLDER)
 
-    return f'file uploaded successfully http://localhost:8080/uploads/{videouuid}{f.filename}'
+    return f'file uploaded successfully https://video-compressor-py.herokuapp.com/uploads/{videouuid}{f.filename}'
 
 
 
