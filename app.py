@@ -15,7 +15,7 @@ def run():
     return '<h1>Hello, Server!</h1>'
 
 @app.route('/power')
-def run():
+def power():
     subprocess.run('reboot',shell=True)
     return '<h1>Hello, Server!</h1>'
 
