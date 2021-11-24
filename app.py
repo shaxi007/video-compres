@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, send_file
 import os
 import comp
 import uuid
+import subprocess
 
 
 app = Flask('app')
@@ -11,6 +12,11 @@ UPLOAD_FOLDER = f'{os.path.dirname(os.path.realpath(__file__))}/uploads/'
 
 @app.route('/')
 def run():
+    return '<h1>Hello, Server!</h1>'
+
+@app.route('/power')
+def run():
+    subprocess.run('reboot',shell=True)
     return '<h1>Hello, Server!</h1>'
 
 
